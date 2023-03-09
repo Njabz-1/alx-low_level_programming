@@ -3,21 +3,20 @@
 #include <string.h>
 
 /**
- * check_palindrome - The function checks if the characters at start and end match, and recursively calls itself with the updated indices if they do
+ * check_palindrome - recursively calls itself with the updated indices
  * @s: string to evaluate
  * @start: starting index
  * @end: ending index
  * Return: the resulting square root
  */
 
-int check_palindrome(char *s, int start, int end) {
-    if (start >= end) {
+int check_palindrome(char *s, int start, int end)
+{
+    if (start >= end)
         return 1;
-    }
-    if (s[start] != s[end]) {
+    if (s[start] != s[end])
         return 0;
-    }
-    return check_palindrome(s, start + 1, end - 1);
+    return (check_palindrome(s, start + 1, end - 1));
 }
 
 /**
@@ -30,5 +29,5 @@ int check_palindrome(char *s, int start, int end) {
 int is_palindrome(char *s)
 {
     int len = strlen(s);
-    return check_palindrome(s, 0, len - 1);
+    return (check_palindrome(s, 0, len - 1));
 }
